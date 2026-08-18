@@ -3,8 +3,8 @@
   "tasks": [
     {
       "type": "shell",
-      "label": "Run Frontend (Vite)",
-      "command": "npm run dev",
+      "label": "Run Frontend Client (Vite)",
+      "command": "npm --prefix client dev",
       "isBackground": true,
       "problemMatcher": [],
       "presentation": {
@@ -15,8 +15,8 @@
     },
     {
       "type": "shell",
-      "label": "Run Backend Server (Express)",
-      "command": "npm run server",
+      "label": "Run Backend Express Server (SQLite DB)",
+      "command": "npm --prefix server start",
       "isBackground": true,
       "problemMatcher": [],
       "presentation": {
@@ -27,8 +27,8 @@
     },
     {
       "type": "shell",
-      "label": "Run Both Frontend & Backend",
-      "command": "npm run dev:all",
+      "label": "Run Both Client & Server",
+      "command": "npm run dev",
       "isBackground": true,
       "problemMatcher": [],
       "group": {
