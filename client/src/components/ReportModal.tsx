@@ -13,7 +13,7 @@ export const ReportModal: React.FC<ReportModalProps> = ({ isOpen, onClose }) => 
 
   if (!isOpen) return null;
 
-  const reportMarkdown = `# FORENSIC INCIDENT AUDIT REPORT - AEGIS CYBER AI
+  const reportMarkdown = `# FORENSIC INCIDENT AUDIT REPORT - AI-BASED PHISHING DETECTION & CYBER THREAT ANALYSIS SYSTEM
 **System Version:** v2.4 (Enterprise Edition)
 **Report Date:** ${new Date().toUTCString()}
 **Lead SOC Developer / Maintainer:** shivanshutiwari481-dot (https://github.com/shivanshutiwari481-dot)

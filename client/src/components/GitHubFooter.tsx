@@ -9,7 +9,7 @@ export const GitHubFooter: React.FC = () => {
           <div className="space-y-1 text-center md:text-left">
             <div className="flex items-center justify-center md:justify-start space-x-2">
               <Shield className="w-4 h-4 text-cyan-400" />
-              <span className="font-bold text-slate-200">Aegis Cyber AI Phishing & Threat Analyzer</span>
+              <span className="font-bold text-slate-200">AI-Based Phishing Detection & Cyber Threat Analysis System</span>
             </div>
             <p className="text-slate-500 text-[11px]">
               Connected to SQLite Database (`server/database/cyber_threats.db`).

@@ -34,16 +34,10 @@ export const Header: React.FC<HeaderProps> = ({
             </div>
             <div>
               <div className="flex items-center space-x-2">
-                <span className="font-mono font-bold tracking-wider text-xl text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-teal-300 to-indigo-400">
-                  AEGIS<span className="text-pink-500">.AI</span>
-                </span>
-                <span className="px-1.5 py-0.5 text-[10px] font-mono font-semibold rounded bg-cyan-950 text-cyan-300 border border-cyan-800">
-                  v2.4
+                <span className="font-mono font-bold tracking-wider text-sm sm:text-base text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-teal-300 to-indigo-400">
+                  AI-Based Phishing Detection & Cyber Threat Analysis System
                 </span>
               </div>
-              <p className="text-[11px] text-slate-400 font-mono tracking-wide">
-                AI Phishing & Threat Intelligence System
-              </p>
             </div>
           </div>
 
