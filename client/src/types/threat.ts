@@ -65,6 +65,47 @@ export interface FileAnalysisResult {
   analyzedAt: string;
 }
 
+export interface VulnerabilityItem {
+  id: string;
+  title: string;
+  cveId: string;
+  cvssScore: number;
+  severity: ThreatSeverity;
+  owaspCategory: string;
+  affectedVector: string;
+  description: string;
+  pocPayload: string;
+  remediationCode: string;
+}
+
+export interface AppSecurityScanResult {
+  appName: string;
+  appType: 'WEB_APP' | 'MOBILE_ANDROID_APK' | 'MOBILE_IOS_IPA';
+  targetIdentifier: string; // URL or Package ID e.g. com.bank.mobile
+  riskScore: number;
+  severity: ThreatSeverity;
+  vulnerabilities: VulnerabilityItem[];
+  permissionsChecked?: { permission: string; risk: 'HIGH' | 'MEDIUM' | 'LOW'; description: string }[];
+  securityHeaders?: { header: string; status: 'PASS' | 'FAIL'; recommendation: string }[];
+  hardcodedSecrets?: { secretType: string; snippet: string; severity: ThreatSeverity }[];
+  xaiFeatures: XAiFeature[];
+  remediationSteps: string[];
+  analyzedAt: string;
+}
+
+export interface PhishingReportData {
+  reportType: 'INTERNAL' | 'EXTERNAL';
+  title: string;
+  period: string;
+  totalCampaigns: number;
+  totalTargetUsers: number;
+  clickedPhishingRatio: number;
+  submittedCredentialsRatio: number;
+  departmentBreakdown: { dept: string; clickRate: number; riskLevel: ThreatSeverity }[];
+  externalTakedowns?: { domain: string; registrar: string; status: 'ACTIVE' | 'TAKEDOWN_REQUESTED' | 'REMOVED'; ip: string }[];
+  topTemplates: { templateName: string; successRate: number; riskCategory: string }[];
+}
+
 export interface IocBatchResult {
   id: string;
   ioc: string;

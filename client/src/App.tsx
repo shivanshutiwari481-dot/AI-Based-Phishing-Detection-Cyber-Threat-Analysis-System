@@ -3,6 +3,9 @@ import { Header } from './components/Header';
 import { ThreatRadar } from './components/ThreatRadar';
 import { UrlScanner } from './components/UrlScanner';
 import { EmailScanner } from './components/EmailScanner';
+import { AppVectorScanner } from './components/AppVectorScanner';
+import { VulnerabilityScanner } from './components/VulnerabilityScanner';
+import { PhishingReportHub } from './components/PhishingReportHub';
 import { FileScanner } from './components/FileScanner';
 import { MitreMatrix } from './components/MitreMatrix';
 import { BatchScanner } from './components/BatchScanner';
@@ -26,7 +29,7 @@ export const App: React.FC = () => {
         activeTab={activeTab}
         setActiveTab={setActiveTab}
         openReportModal={() => setIsReportOpen(true)}
-        threatCount={14}
+        threatCount={18}
       />
 
       <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
@@ -43,6 +46,18 @@ export const App: React.FC = () => {
 
         {activeTab === 'email' && (
           <EmailScanner />
+        )}
+
+        {activeTab === 'app_vector' && (
+          <AppVectorScanner />
+        )}
+
+        {activeTab === 'vuln' && (
+          <VulnerabilityScanner />
+        )}
+
+        {activeTab === 'phish_reports' && (
+          <PhishingReportHub />
         )}
 
         {activeTab === 'file' && (

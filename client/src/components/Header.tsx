@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShieldAlert, Terminal, Github, Activity, Radio, Cpu, FileText, Layers, Search, Globe } from 'lucide-react';
+import { ShieldAlert, Terminal, Github, Activity, Radio, Cpu, FileText, Layers, Search, Globe, Smartphone, Bug, FileSpreadsheet } from 'lucide-react';
 
 interface HeaderProps {
   activeTab: string;
@@ -18,6 +18,9 @@ export const Header: React.FC<HeaderProps> = ({
     { id: 'radar', label: 'Threat Radar & CTI', icon: Globe },
     { id: 'url', label: 'URL Phishing Scanner', icon: Search },
     { id: 'email', label: 'Email & Header Inspector', icon: Terminal },
+    { id: 'app_vector', label: 'Mobile & Web App Scanner', icon: Smartphone },
+    { id: 'vuln', label: 'Check Vulnerabilities & Bugs', icon: Bug },
+    { id: 'phish_reports', label: 'Phishing Reports (Internal & External)', icon: FileSpreadsheet },
     { id: 'file', label: 'File Entropy & YARA', icon: Cpu },
     { id: 'mitre', label: 'MITRE ATT&CK Matrix', icon: Layers },
     { id: 'batch', label: 'Batch IOC Scanner', icon: Activity },

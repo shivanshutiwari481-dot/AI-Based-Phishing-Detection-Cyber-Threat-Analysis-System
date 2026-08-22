@@ -13,27 +13,41 @@ export const ReportModal: React.FC<ReportModalProps> = ({ isOpen, onClose }) => 
 
   if (!isOpen) return null;
 
-  const reportMarkdown = `# FORENSIC INCIDENT AUDIT REPORT - AI-BASED PHISHING DETECTION & CYBER THREAT ANALYSIS SYSTEM
-**System Version:** v2.4 (Enterprise Edition)
-**Report Date:** ${new Date().toUTCString()}
-**Lead SOC Developer / Maintainer:** shivanshutiwari481-dot (https://github.com/shivanshutiwari481-dot)
-**Database Connection:** SQLite Enabled (\`server/database/cyber_threats.db\`)
+  const reportMarkdown = `# FORENSIC INCIDENT & VULNERABILITY AUDIT REPORT
+**System:** AI-Based Phishing Detection & Cyber Threat Analysis System
+**Version:** v2.4 (Enterprise Full-Stack Edition)
+**Date:** ${new Date().toUTCString()}
+**Lead SOC Maintainer:** shivanshutiwari481-dot (https://github.com/shivanshutiwari481-dot)
+**Database File:** SQLite Connected (\`server/database/cyber_threats.db\`)
 
 ---
 
 ## 1. Executive Summary
-During real-time threat intelligence monitoring, Aegis AI detected multi-vector phishing indicators including brand homoglyph lookalikes, email header SPF/DMARC spoofing, and high-entropy executable scripts.
+This forensic audit report details findings across Web Endpoints, Mobile Application Binaries (APK/IPA), Internal/External Phishing Campaigns, and OWASP Top 10 Vulnerabilities.
 
-## 2. Analyzed Indicators of Compromise (IOCs)
-- **Target URL Vector:** \`https://paypal-update-login-security.top/verify?user=admin\`
-  - **Risk Score:** 85/100 (CRITICAL)
-  - **Classification:** Malicious Phishing Portal / Credential Harvester
-  - **Entropy Value:** 4.45 / 8.0
-- **Payload Hash:** \`a1b2c3d4e5f67890123456789abcdef0\` (SHA-256)
+## 2. Analyzed Threat Vectors & Indicators of Compromise (IOCs)
+- **URL Vector:** \`https://paypal-update-login-security.top/verify?user=admin\`
+  - **Risk Score:** 85/100 (CRITICAL) | **Classification:** Malicious Phishing Portal
+- **Mobile Application Binary:** \`SecureBank_Mobile_v3.4.apk\` (\`com.securebank.mobile.app\`)
+  - **Risk Score:** 82/100 (CRITICAL)
+  - **Hardcoded Secret Disclosed:** \`AKIAIOSFODNN7EXAMPLE\` (AWS Access Key ID)
+  - **High-Risk Permissions:** \`READ_SMS\`, \`SYSTEM_ALERT_WINDOW\`
+- **Web App Vulnerability:** CVE-2024-41102 Reflected XSS in \`/search?q=\` (CVSS 8.2 HIGH)
+
+## 3. Internal & External Phishing Intelligence Summary
+- **Internal Employee Simulation Click Rate:** 12.4% (Highest risk: Finance 18.5%, HR 15.2%)
+- **External Rogue Brand Protection Takedowns:**
+  - \`paypal-update-login-security.top\` (IP: 185.220.101.4) - **Takedown Requested**
+  - \`g00gle-account-verification.xyz\` (IP: 45.154.255.89) - **Removed**
+
+## 4. Automated SOAR Remediation & Patching
+1. Rotate disclosed AWS & Stripe API keys immediately.
+2. Apply DOMPurify contextual HTML output sanitization to fix Reflected XSS.
+3. Block \`185.220.101.4\` and \`paypal-update-login-security.top\` on DNS/Perimeter Gateway.
 
 ---
-*Generated automatically by Aegis AI Phishing & Cyber Threat Analysis System.*
-*Repository & Author: [shivanshutiwari481-dot](https://github.com/shivanshutiwari481-dot)*
+*Generated automatically by AI-Based Phishing Detection & Cyber Threat Analysis System.*
+*Repository & Maintainer: [shivanshutiwari481-dot](https://github.com/shivanshutiwari481-dot)*
 `;
 
   const handleCopy = () => {
