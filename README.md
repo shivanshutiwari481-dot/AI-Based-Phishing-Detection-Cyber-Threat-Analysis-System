@@ -85,8 +85,9 @@ npm run dev
 ## 🐙 Push to GitHub Direct (`shivanshutiwari481-dot`)
 
 ```bash
+git remote set-url origin https://github.com/shivanshutiwari481-dot/AI-Based-Phishing-Detection-Cyber-Threat-Analysis-System.git
 git add .
-git commit -m "feat: add mobile/web app scanner, vulnerability check tab, and internal/external phishing reports"
+git commit -m "feat: initial release of AI-Based Phishing Detection & Cyber Threat Analysis System"
 git push -u origin main
 ```
 
