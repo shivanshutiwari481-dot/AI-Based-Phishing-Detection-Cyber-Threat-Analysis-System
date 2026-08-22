@@ -34,6 +34,20 @@ Developed & Maintained by **[shivanshutiwari481-dot](https://github.com/shivansh
 - Visual neural feature importance charts illustrating *why* a risk score (0 to 100) was assigned.
 - **Persistent SQLite Database (`server/database/cyber_threats.db`)**: Stores all scan logs, audit reports, and live CTI threat feeds.
 
+### 🧩 System Modules & Navigation Tabs Summary
+
+| Navigation Tab | Key Vector Analyzed | Output / Analytics |
+| :--- | :--- | :--- |
+| 🛰️ **Threat Radar & CTI** | Global Attack Vectors & Live Feed | Real-time CTI Event Telemetry & Defense Posture |
+| 🔍 **URL Phishing Scanner** | Homoglyphs, Lexical Entropy, TLDs | XAI Feature Breakdown, Brand Impersonation Index |
+| ✉️ **Email & Header Inspector** | SPF, DKIM, DMARC, Spoofed From | Body NLP Intent & Malicious Link Extractor |
+| 📱 **Mobile & Web App Scanner** | Android APK, iOS IPA, Web Headers | Disclosed API Keys, Dangerous Permissions, CORS |
+| 🐛 **Check Vulnerabilities & Bugs** | OWASP Top 10 (XSS, SQLi, SSRF) | CVE IDs, CVSS v3.1 Scores, PoC Exploits, Code Patches |
+| 📊 **Phishing Reports (Internal/External)**| Employee Simulation CTR & Brand Takedowns | Department Risk Levels, Registrar Takedown Monitor |
+| 💻 **File Entropy & YARA** | Binary Payloads & Scripts | Shannon Entropy Visualizer, Cryptographic Hashes, YARA |
+| 🧱 **MITRE ATT&CK Matrix** | Tactic & Technique Correlation | TTP Mapping (`T1566.002`, `T1583.001`, `T1059`) |
+| 📋 **Batch IOC Scanner** | Bulk List of IPs, URLs, Hashes | Categorized Risk Audit & CSV Report Export |
+
 ---
 
 ## 📁 Directory Architecture
