@@ -4,7 +4,7 @@
     {
       "type": "shell",
       "label": "Run Frontend Client (Vite)",
-      "command": "npm --prefix client dev",
+      "command": "npm --prefix client run dev",
       "isBackground": true,
       "problemMatcher": [],
       "presentation": {
