@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { PhishingReportData } from '../types/threat';
-import { ShieldAlert, Users, Globe, ExternalLink, AlertTriangle, FileSpreadsheet, Search, CheckCircle, Filter, Zap } from 'lucide-react';
+import { ShieldAlert, Users, Globe, ExternalLink, AlertTriangle, FileSpreadsheet, Search, CheckCircle, Filter, Zap, RefreshCw } from 'lucide-react';
 import { ResponsiveContainer, BarChart, Bar, XAxis, YAxis, Tooltip, Cell } from 'recharts';
 
 const INITIAL_EXTERNAL_TAKEDOWNS = [
@@ -33,11 +33,29 @@ const INTERNAL_REPORT_DATA: PhishingReportData = {
   ]
 };
 
+const EXTERNAL_REPORT_DATA: PhishingReportData = {
+  reportType: 'EXTERNAL',
+  title: 'External Brand Impersonation & Rogue Domain Takedown Intelligence',
+  period: 'August 2026 Threat Feed',
+  totalCampaigns: 28,
+  totalTargetUsers: 84000,
+  clickedPhishingRatio: 8.5,
+  submittedCredentialsRatio: 2.1,
+  departmentBreakdown: [],
+  externalTakedowns: INITIAL_EXTERNAL_TAKEDOWNS,
+  topTemplates: [
+    { templateName: 'OAuth SSO Token Harvester Kit v4', successRate: 42.0, riskCategory: 'Brand Impersonation' },
+    { templateName: 'Fake Banking Login Portal Clone', successRate: 35.5, riskCategory: 'Financial Phishing' }
+  ]
+};
+
 export const PhishingReportHub: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'INTERNAL' | 'EXTERNAL'>('EXTERNAL');
   const [searchQuery, setSearchQuery] = useState('');
   const [takedownsList, setTakedownsList] = useState(INITIAL_EXTERNAL_TAKEDOWNS);
   const [isSearching, setIsSearching] = useState(false);
+
+  const report = activeTab === 'INTERNAL' ? INTERNAL_REPORT_DATA : EXTERNAL_REPORT_DATA;
 
   const handleUrlSearch = () => {
     if (!searchQuery.trim()) return;
@@ -49,7 +67,6 @@ export const PhishingReportHub: React.FC = () => {
         domainName = parsed.hostname;
       } catch (e) {}
 
-      // Check if domain exists in takedown list, otherwise dynamically generate entry
       const exists = takedownsList.some(t => t.domain.includes(domainName));
       if (!exists) {
         const newEntry = {
@@ -61,7 +78,7 @@ export const PhishingReportHub: React.FC = () => {
         setTakedownsList(prev => [newEntry, ...prev]);
       }
       setIsSearching(false);
-    }, 400);
+    }, 300);
   };
 
   const filteredTakedowns = takedownsList.filter(t =>
@@ -71,10 +88,10 @@ export const PhishingReportHub: React.FC = () => {
   );
 
   const filteredDepartments = INTERNAL_REPORT_DATA.departmentBreakdown.filter(d =>
-    d.dept.toLowerCase().includes(searchQuery.toLowerCase())
+    d.dept.toLowerCase().includes(searchQuery.toLowerCase()) || !searchQuery
   );
 
-  const chartData = filteredDepartments.map(d => ({
+  const chartData = (filteredDepartments.length > 0 ? filteredDepartments : INTERNAL_REPORT_DATA.departmentBreakdown).map(d => ({
     dept: d.dept,
     clickRate: d.clickRate
   }));
@@ -96,7 +113,7 @@ export const PhishingReportHub: React.FC = () => {
               onClick={() => setActiveTab('EXTERNAL')}
               className={`px-4 py-1.5 rounded-md font-semibold transition-all ${
                 activeTab === 'EXTERNAL'
-                  ? 'bg-pink-500/20 text-pink-300 border border-pink-500/40'
+                  ? 'bg-pink-500/20 text-pink-300 border border-pink-500/40 shadow-sm shadow-pink-500/20'
                   : 'text-slate-400 hover:text-slate-200'
               }`}
             >
@@ -106,7 +123,7 @@ export const PhishingReportHub: React.FC = () => {
               onClick={() => setActiveTab('INTERNAL')}
               className={`px-4 py-1.5 rounded-md font-semibold transition-all ${
                 activeTab === 'INTERNAL'
-                  ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/40'
+                  ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 shadow-sm shadow-cyan-500/20'
                   : 'text-slate-400 hover:text-slate-200'
               }`}
             >
@@ -147,7 +164,7 @@ export const PhishingReportHub: React.FC = () => {
           {/* Quick Presets */}
           <div className="flex flex-wrap items-center gap-2 pt-2 text-[11px]">
             <span className="text-slate-500">Quick Intel Filter:</span>
-            {['paypal', 'google', 'microsoft', '185.220'].map((preset, idx) => (
+            {['paypal', 'google', 'microsoft', '185.220', 'Finance'].map((preset, idx) => (
               <button
                 key={idx}
                 onClick={() => {
@@ -170,29 +187,29 @@ export const PhishingReportHub: React.FC = () => {
           </div>
         </div>
 
-        <div className="flex items-center justify-between text-slate-400 border-t border-slate-800 pt-3 text-[11px] mt-4">
-          <span>Report Title: <strong className="text-slate-200">{activeTab === 'INTERNAL' ? INTERNAL_REPORT_DATA.title : EXTERNAL_REPORT_DATA.title}</strong></span>
-          <span>Time Frame: <strong className="text-cyan-300">August 2026 Threat Feed</strong></span>
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between text-slate-400 border-t border-slate-800 pt-3 text-[11px] mt-4 gap-2">
+          <span>Report Title: <strong className="text-slate-200">{report.title}</strong></span>
+          <span>Time Frame: <strong className="text-cyan-300">{report.period}</strong></span>
         </div>
       </div>
 
-      {/* Metrics Row */}
+      {/* Dynamic Metrics Row */}
       <div className="grid grid-cols-1 sm:grid-cols-4 gap-4">
         <div className="glass-panel p-4 rounded-xl space-y-1">
           <span className="text-slate-400 text-[10px]">Total Scanned Campaigns:</span>
-          <div className="text-2xl font-bold text-cyan-300">28 Campaigns</div>
+          <div className="text-2xl font-bold text-cyan-300">{report.totalCampaigns} Campaigns</div>
         </div>
         <div className="glass-panel p-4 rounded-xl space-y-1">
           <span className="text-slate-400 text-[10px]">Target Audience / Users:</span>
-          <div className="text-2xl font-bold text-indigo-300">84,000 Users</div>
+          <div className="text-2xl font-bold text-indigo-300">{report.totalTargetUsers.toLocaleString()} Users</div>
         </div>
         <div className="glass-panel p-4 rounded-xl space-y-1">
           <span className="text-slate-400 text-[10px]">Phishing Click Ratio (CTR):</span>
-          <div className="text-2xl font-bold text-amber-400">8.5%</div>
+          <div className="text-2xl font-bold text-amber-400">{report.clickedPhishingRatio}%</div>
         </div>
         <div className="glass-panel p-4 rounded-xl space-y-1">
           <span className="text-slate-400 text-[10px]">Compromised Credentials Rate:</span>
-          <div className="text-2xl font-bold text-pink-400">2.1%</div>
+          <div className="text-2xl font-bold text-pink-400">{report.submittedCredentialsRatio}%</div>
         </div>
       </div>
 
