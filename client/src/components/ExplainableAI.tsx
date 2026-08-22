@@ -36,7 +36,7 @@ export const ExplainableAI: React.FC<ExplainableAIProps> = ({ features, overallS
       </p>
 
       <div className="h-48 w-full">
-        <ResponsiveContainer width="100%" height="100%">
+        <ResponsiveContainer width="100%" height="100%" minWidth={100} minHeight={180}>
           <BarChart data={chartData} layout="vertical" margin={{ top: 5, right: 30, left: 40, bottom: 5 }}>
             <XAxis type="number" domain={[0, 100]} stroke="#475569" tick={{ fontSize: 11, fill: '#94a3b8' }} />
             <YAxis dataKey="name" type="category" stroke="#475569" tick={{ fontSize: 11, fill: '#cbd5e1' }} width={160} />

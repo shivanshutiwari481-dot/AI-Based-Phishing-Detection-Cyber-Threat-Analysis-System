@@ -139,7 +139,7 @@ export const ThreatRadar: React.FC<{ onSelectSampleUrl: (url: string) => void }>
           </div>
 
           <div className="h-56 w-full">
-            <ResponsiveContainer width="100%" height="100%">
+            <ResponsiveContainer width="100%" height="100%" minWidth={100} minHeight={200}>
               <RadarChart cx="50%" cy="50%" outerRadius="75%" data={RADAR_DATA}>
                 <PolarGrid stroke="#1e293b" />
                 <PolarAngleAxis dataKey="subject" stroke="#94a3b8" tick={{ fontSize: 10, fill: '#94a3b8' }} />

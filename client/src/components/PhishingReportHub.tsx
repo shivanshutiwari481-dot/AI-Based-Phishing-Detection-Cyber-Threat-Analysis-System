@@ -250,7 +250,7 @@ export const PhishingReportHub: React.FC = () => {
               <span>DEPARTMENT PHISHING CLICK-THROUGH RATE (%)</span>
             </h3>
             <div className="h-56 w-full">
-              <ResponsiveContainer width="100%" height="100%">
+              <ResponsiveContainer width="100%" height="100%" minWidth={100} minHeight={180}>
                 <BarChart data={chartData} layout="vertical" margin={{ top: 5, right: 20, left: 40, bottom: 5 }}>
                   <XAxis type="number" domain={[0, 25]} stroke="#475569" tick={{ fontSize: 10, fill: '#94a3b8' }} />
                   <YAxis dataKey="dept" type="category" stroke="#475569" tick={{ fontSize: 10, fill: '#cbd5e1' }} width={140} />
