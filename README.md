@@ -96,6 +96,22 @@ npm run dev
 
 ---
 
+## 🤖 Google AI Studio Integration (aistudio.google.com)
+
+To upload or analyze this complete project inside **Google AI Studio**:
+
+1. **Generate Single-File Codebase Bundle:**
+   ```bash
+   node bundle_for_ai_studio.js
+   ```
+2. **Upload to Google AI Studio:**
+   - Open [https://aistudio.google.com](https://aistudio.google.com)
+   - Click **Create New Prompt** or **Chat Prompt**
+   - Click **Insert > File** (or drag & drop [`PROJECT_BUNDLE_FOR_GOOGLE_AI_STUDIO.txt`](file:///c:/Users/vicky/OneDrive/Desktop/AI%20BASED%20DECTICTON%20CYBER%20THREAT%20ANALYZER/PROJECT_BUNDLE_FOR_GOOGLE_AI_STUDIO.txt)) into the context window.
+   - You can now prompt Gemini 1.5 Pro / 2.0 Flash to inspect, test, or generate code for the entire system!
+
+---
+
 ## 🐙 Push to GitHub Direct (`shivanshutiwari481-dot`)
 
 ```bash
