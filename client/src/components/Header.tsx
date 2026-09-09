@@ -38,7 +38,7 @@ export const Header: React.FC<HeaderProps> = ({
             <div>
               <div className="flex items-center space-x-2">
                 <span className="font-mono font-bold tracking-wider text-sm sm:text-base text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-teal-300 to-indigo-400">
-                  AI-Based Phishing Detection & Cyber Threat Analysis System
+                  AI-Based Phishing Detection & Cyber Threat Analyzer System
                 </span>
               </div>
             </div>

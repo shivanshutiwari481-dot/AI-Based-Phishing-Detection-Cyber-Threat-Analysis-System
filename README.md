@@ -1,4 +1,4 @@
-# AI-Based Phishing Detection & Cyber Threat Analysis System
+# AI-Based Phishing Detection & Cyber Threat Analyzer System
 
 [![GitHub Developer](https://img.shields.io/badge/GitHub-shivanshutiwari481--dot-00f3ff?logo=github&style=flat-square)](https://github.com/shivanshutiwari481-dot)
 [![License: MIT](https://img.shields.io/badge/License-MIT-00ff88.svg?style=flat-square)](LICENSE)
@@ -101,7 +101,7 @@ npm run dev
 ```bash
 git remote set-url origin https://github.com/shivanshutiwari481-dot/AI-Based-Phishing-Detection-Cyber-Threat-Analysis-System.git
 git add .
-git commit -m "feat: initial release of AI-Based Phishing Detection & Cyber Threat Analysis System"
+git commit -m "feat: initial release of AI-Based Phishing Detection & Cyber Threat Analyzer System"
 git push -u origin main
 ```
 

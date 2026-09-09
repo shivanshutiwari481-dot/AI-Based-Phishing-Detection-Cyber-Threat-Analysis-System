@@ -16,7 +16,7 @@ app.get('/', (req, res) => {
     <html lang="en">
     <head>
       <meta charset="UTF-8">
-      <title>AI-Based Phishing Detection & Cyber Threat Analysis System - Backend API</title>
+      <title>AI-Based Phishing Detection & Cyber Threat Analyzer System - Backend API</title>
       <style>
         body { font-family: 'Fira Code', monospace; background-color: #070b12; color: #00f3ff; padding: 40px; line-height: 1.6; }
         .card { background: #0d1527; border: 1px solid #00f3ff55; padding: 24px; border-radius: 12px; max-width: 800px; box-shadow: 0 0 20px rgba(0,243,255,0.1); }
@@ -29,7 +29,7 @@ app.get('/', (req, res) => {
     </head>
     <body>
       <div class="card">
-        <h1>🛡️ AI-Based Phishing Detection & Cyber Threat Analysis System</h1>
+        <h1>🛡️ AI-Based Phishing Detection & Cyber Threat Analyzer System</h1>
         <p><span class="badge">BACKEND ONLINE</span> <strong>Server Port: 5000</strong> | <strong>SQLite DB Connected</strong></p>
         <p>Developer & Maintainer: <strong>shivanshutiwari481-dot</strong></p>
 
@@ -54,7 +54,7 @@ app.get('/', (req, res) => {
 app.get('/api/health', (req, res) => {
   res.json({
     status: 'ONLINE',
-    system: 'AI-Based Phishing Detection & Cyber Threat Analysis System Engine',
+    system: 'AI-Based Phishing Detection & Cyber Threat Analyzer System Engine',
     database: 'SQLite Connected (cyber_threats.db)',
     maintainer: 'shivanshutiwari481-dot',
     frontendUi: 'http://localhost:5173',

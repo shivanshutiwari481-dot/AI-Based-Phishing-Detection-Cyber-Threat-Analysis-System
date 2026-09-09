@@ -14,7 +14,7 @@ export const ReportModal: React.FC<ReportModalProps> = ({ isOpen, onClose }) => 
   if (!isOpen) return null;
 
   const reportMarkdown = `# FORENSIC INCIDENT & VULNERABILITY AUDIT REPORT
-**System:** AI-Based Phishing Detection & Cyber Threat Analysis System
+**System:** AI-Based Phishing Detection & Cyber Threat Analyzer System
 **Version:** v2.4 (Enterprise Full-Stack Edition)
 **Date:** ${new Date().toUTCString()}
 **Lead SOC Maintainer:** shivanshutiwari481-dot (https://github.com/shivanshutiwari481-dot)
@@ -46,7 +46,7 @@ This forensic audit report details findings across Web Endpoints, Mobile Applica
 3. Block \`185.220.101.4\` and \`paypal-update-login-security.top\` on DNS/Perimeter Gateway.
 
 ---
-*Generated automatically by AI-Based Phishing Detection & Cyber Threat Analysis System.*
+*Generated automatically by AI-Based Phishing Detection & Cyber Threat Analyzer System.*
 *Repository & Maintainer: [shivanshutiwari481-dot](https://github.com/shivanshutiwari481-dot)*
 `;
 
